@@ -1,7 +1,7 @@
 # este sera el archivo para el tp
 
-#Segunda modificacion. 
+# Segunda modificacion. 
 
-#Comentario de Nico
+# Comentario de Nico
 
 # prueba
