@@ -15,5 +15,7 @@ a = 25214903917
 c = 11
 m = 2 ** 48
 
-resultGLC = generadores.glc(seed, a, c, m, 100000)
-graficaFrecuecias(resultGLC)
+#resultGLC = generadores.glc(seed, a, c, m, 100000)
+#graficaFrecuecias(resultGLC)
+
+resultCuadrado = generadores.cuadradosmedios(1234,100)

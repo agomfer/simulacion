@@ -20,3 +20,22 @@ def glc(seed, a, c, m, n):
 
 
 
+# Generador Método de los cuadrados medios
+# Forma --> Usub(1) = Xsub(1) / 10^4
+
+def cuadradosmedios(seed,n):
+    seeds= []
+    seeds.append(seed)
+    values= []
+    for i in range(n):
+        v = seeds[i]**2
+        values.append(v)
+        x = int(str(v).zfill(8)[2:6])
+        seeds.append(x)
+        print('seed: ' + str(seeds[i]) + ' - Value: ' + str(values[i]))
+    return var
+
+
+
+
+
