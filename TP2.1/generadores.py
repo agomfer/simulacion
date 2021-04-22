@@ -8,12 +8,9 @@
 # Semilla 0 <= X sub0 <= m
 
 
-valores = []
-
-
-def glc(r, a, c, m, n):
+def glc(seed, a, c, m, n):
     var = []
-    rand = r
+    rand = seed
     for i in range(n):
         rand = (a*rand + c) % m
         var.append(rand/m)
@@ -22,9 +19,4 @@ def glc(r, a, c, m, n):
     return var
 
 
-a = 25214903917
-c = 11
-m = 2**48
-
-valores=glc(2,a,c,m,10)
 
