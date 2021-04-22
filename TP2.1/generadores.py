@@ -33,7 +33,7 @@ def cuadradosmedios(seed,n):
         x = int(str(v).zfill(8)[2:6])
         seeds.append(x)
         print('seed: ' + str(seeds[i]) + ' - Value: ' + str(values[i]))
-    return var
+    return seeds, values
 
 
 
