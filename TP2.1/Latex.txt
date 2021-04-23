@@ -1,0 +1,143 @@
+\documentclass{article}
+
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\graphicspath{ {./images/} }
+
+
+\title{Predict future sale}
+
+
+\author{
+ Santiago Cancio \\
+  Cátedra de Simulación\\
+  Universidad Tecnológica Nacional\\
+  Zeballos 1341, Rosario, Santa Fe \\
+  \texttt{santiago.cancio96@gmail.com} \\
+  %% examples of more authors
+   \And
+ Nicolás Fierro \\
+  Cátedra de Simulación\\
+  Universidad Tecnológica Nacional \\
+  Zeballos 1341, Rosario, Santa Fe\\
+  \texttt{nicofierro1@gmail.com} \\
+  \And
+ Alejandro Gómez Fernández \\
+  Cátedra de Simulación\\
+  Universidad Tecnológica Nacional \\
+  Zeballos 1341, Rosario, Santa Fe\\
+  \texttt{agomfer@gmail.com} \\
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Este trabajo práctico se basará en el estudio de diferentes generadores de números pseudo-aleatorios. Primero crearemos los generadores para luego realizar diversas pruebas con los mismos.
+\end{abstract}
+
+
+% keywords can be removed
+%\keywords{First keyword \and Second keyword \and More}
+
+
+\section{Introducción}
+Un número pseudo-aleatorio es un número generado en un proceso que parece producir números al azar, pero no lo hace realmente. Las secuencias de números pseudo-aleatorios no muestran ningún patrón o regularidad aparente desde un punto de vista estadístico, a pesar de haber sido generadas por un algoritmo completamente determinista, en el que las mismas condiciones iniciales producen siempre el mismo resultado.
+
+Los generadores de números pseudoaleatorios son ampliamente utilizados en campos tales como el modelado por computadora, estadística, diseño experimental, etc. Algunas de estas secuencias son lo suficientemente aleatorias para ser útiles en estas aplicaciones.
+
+Por lo general, el interés no radica en generar un solo número aleatorio, sino muchos, reunidos en lo que se conoce como secuencia aleatoria.
+
+Nuestro objetivo es generar dichas sucesiones de números pseudo-aleatorios, y para lograr esto hemos programado dos generadores distintos:
+
+\begin{itemize}
+\item Generador Congruencial Lineal (GCL)
+\item Generador Método de los cuadrados medios
+\end{itemize}
+
+\section{Descripción de los generadores}
+\label{sec:headings}
+\subsection{Generador Congruencial Lineal}
+Un generador congruencial lineal es un algoritmo que permite obtener una secuencia de números pseudo-aleatorios calculados con una función lineal definida a trozos discontinua. Es uno de los métodos más antiguos y conocidos para la generación de números pseudo-aleatorios. La teoría que sustenta el proceso es relativamente fácil de entender, el algoritmo en si es de fácil implementación y su ejecución es rápida.
+
+El generador se define por la relación de recurrencia:
+\begin{center}
+    \includegraphics[width=0.25\linewidth]{Imagen recurrencia.png}
+\end{center}
+donde es la secuencia de valores pseudoaleatorios, y X
+
+m, 0 < m - el "módulo"
+
+a, 0 < a < m - el "multiplicador"
+
+c, 0 <= c < m - el "incremento"
+
+X0, 0  <=  X_0 < m - la "semilla" o "valor inicial"
+    
+son constantes enteras que especifican el generador. Si c  = 0, el generador a menudo se denomina generador congruencial multiplicativo (MCG) o Lehmer RNG. Si c <> 0, el método se denomina generador congruencial mixto. 
+
+Cuando c <> 0, un matemático llamaría a la recurrencia una transformación afín, no lineal, pero el nombre inapropiado está bien establecido en la informática.
+
+\subsection{Generador Método de los cuadrados medios}
+Es un método propuesto en los años 40 por los matemáticos John von Neumann y Nicholas Metropolis, siendo utilizado para la generación de números pseudo-aleatorios, Esto para obtener una sucesión de números que básicamente se obtienen a partir de recurrencia, los cuales son relevantes en los procesos de simulación debido a que con estos números se hace posible comprobar el correcto funcionamiento de una prueba mediante la observación del comportamiento de las variables que se puedan encontrar a lo largo de la simulación.
+
+El método consiste en tomar un número al azar, X° de 2n cifras que al ser elevado al cuadrado resulta un número de hasta 4n cifras, de no ser así se deben agregar ceros a la izquierda de dicho resultado para que éste tenga exactamente 4n cifras.
+
+Se denomina X1 al número resultante de seleccionar las 2n cifras centrales del resultado anterior.
+
+Se genera el número pseudo-aleatorio U1 ubicando un punto decimal delante de las 2n cifras de X1 y así sucesivamente para los demás números pseudo-aleatorios.
+\section{Pruebas}
+\label{sec:others}
+
+\section{Conclusión}
+\label{sec:others}
+
+\bibliographystyle{unsrt}  
+%\bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
+%%% and comment out the ``thebibliography'' section.
+
+
+%%% Comment out this section when you \bibliography{references} is enabled.
+\begin{thebibliography}{1}
+
+\bibitem{Números pseudo-aleatorios}
+Números pseudo-aleatorios:
+\newblock https://es.wikipedia.org/wiki/N%C3%BAmero_pseudoaleatorio
+
+\bibitem{Generador Congruencial Lineal}
+Generador Congruencial Lineal:
+\newblock https://es.qaz.wiki/wiki/Linear_congruential_generator
+
+\bibitem{Método de los cuadrados medios}
+\newblock https://es.wikibooks.org/wiki/Método_de_los_cuadrados_medios_para_la_generación_de_números_pseudoaleatorios
+
+\end{thebibliography}
+
+
+\end{document}
