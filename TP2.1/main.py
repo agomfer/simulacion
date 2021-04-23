@@ -1,5 +1,6 @@
 import generadores
 import matplotlib.pyplot as plt
+import test
 
 
 
@@ -23,14 +24,16 @@ def graficaCuadrado(seeds,values,title,n):
    plt.show()
 
 
-#Definición de parámetros para generadores
+#Definición de parámetros para generador GLC
 seed = 2
 a = 25214903917
 c = 11
 m = 2 ** 48
 
-resultGLC = generadores.glc(seed, a, c, m, 100)
-graficaFrecuecias(resultGLC,'GLC')
+resultGLC = generadores.glc(seed, a, c, m, 1000)
+#graficaFrecuecias(resultGLC,'GLC')
 
-resultCuadrado = generadores.cuadradosmedios(1234,100)
-graficaCuadrado(resultCuadrado[0],resultCuadrado[1],'Cuadrado',10)
+resultCuadrado = generadores.cuadradosmedios(7287,100)
+#graficaCuadrado(resultCuadrado[0],resultCuadrado[1],'Cuadrado',10)
+
+test.pruebaMonobit(resultCuadrado[0])
