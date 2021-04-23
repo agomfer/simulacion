@@ -135,6 +135,7 @@ Generador Congruencial Lineal:
 \newblock https://es.qaz.wiki/wiki/Linear_congruential_generator
 
 \bibitem{Método de los cuadrados medios}
+Método de los cuadrados medios:
 \newblock https://es.wikibooks.org/wiki/Método_de_los_cuadrados_medios_para_la_generación_de_números_pseudoaleatorios
 
 \end{thebibliography}
