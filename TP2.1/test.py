@@ -1,5 +1,6 @@
 import random, math, time, string
 from math import sqrt, erfc
+import matplotlib.pyplot as plt
 
 
 # Convierte ese random de letras en binarios
@@ -25,8 +26,7 @@ def pruebaMonobit(numeros):
     print(binfile)
     valor_p = monobit(binfile)
     if (valor_p < 0.01):
-        print
-        "Test de frecuencia extiosa ", valor_p
+        print("Prueba de frecuencia Exitosa - Valor: "+ str(valor_p))
     else:
-        print
-        "Test de frecuencia no exitosa ", valor_p
+        print("Prueba de frecuencia No Exitosa - Valor: "+ str(valor_p))
+

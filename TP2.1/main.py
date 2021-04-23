@@ -21,6 +21,7 @@ def graficaCuadrado(seeds,values,title,n):
    ax.axis('tight')
    ax.axis('off')
    ax.table(cellText=data, colLabels=column_labels, loc="center")
+   plt.title(title)
    plt.show()
 
 
@@ -33,7 +34,9 @@ m = 2 ** 48
 resultGLC = generadores.glc(seed, a, c, m, 1000)
 #graficaFrecuecias(resultGLC,'GLC')
 
-resultCuadrado = generadores.cuadradosmedios(7287,100)
+resultCuadrado = generadores.cuadradosmedios(1556,10000)
 #graficaCuadrado(resultCuadrado[0],resultCuadrado[1],'Cuadrado',10)
 
-test.pruebaMonobit(resultCuadrado[0])
+
+print("PRUEBA DE FRECUENCIA - MÉTODO DE LOS CUADRADOS MEDIOS")
+test.pruebaMonobit(resultCuadrado[1])
