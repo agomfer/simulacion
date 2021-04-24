@@ -17,7 +17,7 @@
 \graphicspath{ {./images/} }
 
 
-\title{Predict future sale}
+\title{TP 2.1 - Generadores de números pseudo-aleatorios}
 
 
 \author{
