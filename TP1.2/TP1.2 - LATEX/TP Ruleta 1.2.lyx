@@ -1,0 +1,1266 @@
+#LyX file created by tex2lyx 2.3
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin C:/Users/agomf/Documents/GitHub/Simulacion/simulacion/TP1.2/TP1.2 - LATEX/
+\textclass article
+\begin_preamble
+
+
+
+\usepackage{arxiv}
+
+
+% allow utf-8 input
+% use 8-bit T1 fonts
+% hyperlinks
+\usepackage{url}% simple URL typesetting
+\usepackage{booktabs}% professional-quality tables
+\usepackage{amsfonts}% blackboard math symbols
+\usepackage{nicefrac}% compact symbols for 1/2, etc.
+% microtypography
+\usepackage{lipsum}
+\usepackage[spanish]{babel}
+\graphicspath{ {./images/} }
+
+
+\title{TP 1.2 - ESTUDIO ECONÓMICO-MATEMÁTICO DE APUESTAS EN LA RULETA}
+
+
+\author{
+ Santiago Cancio \\
+  Cátedra de Simulación\\
+  Universidad Tecnológica Nacional\\
+  Zeballos 1341, Rosario, Santa Fe \\
+  \texttt{santiago.cancio96@gmail.com} \\
+  %% examples of more authors
+   \And
+ Nicolás Fierro \\
+  Cátedra de Simulación\\
+  Universidad Tecnológica Nacional \\
+  Zeballos 1341, Rosario, Santa Fe\\
+  \texttt{nicofierro1@gmail.com} \\
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 0
+\pdf_backref section
+\pdf_pdfusetitle 0
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang spanish
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+maketitle
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Abstract
+
+\lang spanish
+El siguiente documento se basa en profundizar el estudio del comportamiento de la ruleta desde el punto de vista del apostador y sus estrategias con el objetivo de desmitificar estadísticamente la verdadera probabilidad de obtener ganancias con un medio ideal, como nuestra ruleta simulada. 
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% keywords can be removed
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+keywords{First keyword 
+\backslash
+and Second keyword 
+\backslash
+and More}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang spanish
+Introducción
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Nuestro trabajo consistirá en analizar dos estrategias distintas para apostar a la ruleta, donde probaremos las mismas con dos tipos distintos de capitales, siendo uno de ellos capital acotado, el cual será tomado como el caso realista, y el otro siendo con un capital mucho mayor, el cual tomaremos como el caso ideal. Generaremos gráficos de ambas estrategias para analizar cuando se producen ganancias y cuando se producen pérdidas, viendo de esta manera la variación del flujo de caja a medida que la cantidad de tiradas vaya aumentando.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Tanto para los casos tomados con capital ideal o capital acotado, la simulacion sera corrida 10 veces graficando de manera simultanea los resultados, para de esta manera lograr conseguir resultados mas confiables y evitar obtener resultados diferentes de lo esperado solo por tener un resultado particular.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+La ruleta que se utilizará para la simulación será la ruleta tipo Europea, la cuál tiene lo números del 1 al 36 y el 0.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename Ruleta-Europea-Imagen.jpg
+	width 50line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 1: Ruleta Europea
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang spanish
+Descripción de las estrategias utilizadas
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:headings"
+
+\end_inset
+
+ En cada corrida realizada, se harán 100 tiradas de la ruleta como máximo, o de lo contrario hasta que el capital acotado con el que cuenta el jugador sea insuficiente para continuar apostando. En todos los casos, las apuestas están definidas de la siguiente manera: 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Valor de la apuesta: 50 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Separator plain
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Capital acotado: 1000 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Separator plain
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Capital ideal: 200000 
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+A continuación procederemos a nombrar y describir las estrategias que estaremos evaluando.
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Estrategia Martingala
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Esta estrategia de ruleta nació en Francia en el siglo XVIII y es una de las estrategias de ruleta mas famosas. La misma consiste en apostar una cantidad fija en la apuesta inicial y en caso de pérdida, duplicar esta cantidad apostada hasta que se gane nuestra apuesta. De esta forma, se habrá logrado como beneficio la cantidad que pusimos como nuestra apuesta inicial cuando empezamos a jugar a la ruleta. Se utiliza en las apuestas sencillas como doble o nada: rojo-negro, par-impar, entre otras. A continuacion lo explicaremos mas claramente con un ejemplo muy simple asumiendo que nuestra apuesta inicial es de 1 (nosotros lo evaluaremos con apuestas de 50):
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish
+Apostamos 1 a los numeros pares. Si ganamos, repetimos el mismo paso. Si perdemos, vamos al siguiente paso. 
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish
+Apostamos 2 a los numeros pares (el doble de la anterior). Si ganamos, volvemos al paso 1. Si perdemos, vamos al paso 3. 
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish
+Apostamos 4 a los numeros pares (el doble del paso 2). De nuevo, si ganamos volvemos a empezar, y si perdemos, seguimos al paso 4. 
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish
+Apostamos 8 a los numeros pares (el doble del paso 2). Igual que en el paso anterior, si ganamos volvemos a empezar, y si perdemos, seguimos al paso 5. 
+\end_layout
+
+\begin_layout Enumerate
+
+\lang spanish
+Doblamos de nuevo la apuesta: 16. Tanto si se gana como si se pierde, se vuelve al paso 1. Si ganáramos en el último paso, las ganancias ascenderían a 16, mientras que las pérdidas sumarían 1+2+4+8 = 15. Habremos ganado 1, el equivalente a la apuesta inicial. 
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Estrategia de Fibonacci
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Esta es una estrategia para la ruleta creada por Leonardo Pisano Bigollo, al que se le conoció popularmente como Fibonacci. Fue un famoso matemático italiano nacido en el año 1170. Se hizo famoso por descubrir la secuencia de números conocido por su nombre y en que cada número es la suma de los dos números anteriores: 1-1-2-3-5-8-13-21-34-55-89-144-233-377-610.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Se puede aplicar como estrategia de ruleta de la siguiente manera: Se comienza apostando una pequeña cantidad a una apuesta simple (negro/rojo, par/impar o 1-18/19-36). Si se pierde, se sigue adelante con la secuencia. Es decir, que si has apostado 1 unidad y pierdes, la siguiente apuesta sería: (0 + 1 = 1) 1 unidad, Si pierdes, apuestas 2 unidades (1+1= 2) siguiendo la sucesión de Fibonacci. Cuando ganes, debes volver dos lugares hacia atrás en la secuencia descrita y apostar esa cantidad. Pero mucho más fácil para entenderlo con este ejemplo con una ronda con apuestas ganadas y perdidas y su desarrollo en la estrategia Fibonacci: 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Apuesta a los numeros pares, 3, resultado: pierdes. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Apuesta a los numeros pares, 3, resultado: pierdes. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Apuesta a los numeros pares, 6, resultado: pierdes. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Apuesta a los numeros pares, 9, resultado: pierdes. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Apuesta a los numeros pares, 15, resultado: ganas. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Apuesta a los numeros pares, 6, resultado: pierdes. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Apuesta a los numeros pares, 9, resultado: ganas. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Apuesta a los numeros pares, 3, resultado: ganas. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Apuesta a los numeros pares, 3, resultado: ganas. 
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+De esta forma, a pesar de que se ha perdido 5 apuestas por 4 ganadas, se ha logrado obtener beneficios de 3 unidades.
+\end_layout
+
+\begin_layout Section
+
+\lang spanish
+Análisis de resultados
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+A continación mostraremos y analizaremos las gráficas dadas a partir de las distintas estrategias simuladas con un capital acotado, que en nuestro caso será de mil unidades.
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Capital acotado
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+
+\series bold
+Martingala:
+\series default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename MG-acotado-1tirada.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 2: Martingala - Única Corrida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Como se puede observar en esta gráfica, el jugador comienza con una muy buena racha de victorias con mínimas pérdidas hasta estar cerca de la tirada 40. Un poco antes de llegar a esta tirada el jugador tiene algunas pérdidas considerables, pero luego volvería a ganar incluso más que antes. Al llegar a la tirada 50, el jugador estaría en iguales condiciones en las que empezó, ya que tuvo una considerable baja en su flujo de caja, pero luego comenzaría a ganar nuevamente hasta llegar a tener un capital final de 2250, superando asi por 1250 unidades su capital inicial.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FreRel-MG.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 3: Frecuencia relativa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Ahora podemos ver en el gráfico de la frecuencia relativa como varía el valor de esta dependiendo de si se tiene una racha positiva o negativa al comienzo de la sesión y luego a medida que aumentan las tiradas en esta sesión tiende a un valor cercano al 0.6.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename MG-acotado-multiplestiradas.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 4: Martingala - Múltiples Corridas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En esta gráfica podemos observar que en la mayoría de los casos el jugador termina teniendo ganancias, incluso más elevadas de lo esperado. Solo en tres de los diez casos simulados el jugador termina con pérdidas suficientes como para no poder continuar apostando. 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+
+\series bold
+Fibonacci:
+\series default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIB-acotado-1tirada.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 5: Fibonacci - Única Corrida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Como podemos observar en esta gráfica, el jugador comienza manteniendose con un valor bastante similar al que tenia apenas había iniciado, pero cerca de la tirada número 60 se puede observar como comienza a haber cada vez mas pérdidas, llegando al pico poco antes de la tirada 80. Afortunádamente para el jugador, unas jugadas más tarde pudo ganar algunas apuestas, recuperando así parte de lo perdido, pero terminando igualmente en una pérdida. Lo bueno de usar esta estrategia es que casi nunca llegamos a apostar cifras muy elevadas, por lo tanto nunca llegaremos a tener pérdidas tan considerables como las podriamos tener utilizando otras estrategias.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FreRel-FIB.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 6: Frecuencia relativa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En este caso podemos observar como varía el valor de la frecuencia relativa, dependiendo de si los resultados fueron positivos o negativos, para llegar a un valor cercano a 0.5 al finalizar las 100 tiradas.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIB-acotado-multiplestiradas(1).png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 7: Fibonacci - Múltiples Corridas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIB-acotado-multiplestiradas(2).png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 8: Fibonacci - Múltiples Corridas Acercadas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En este gráfico podemos observar que, al contrario de la gráfica anterior con una sola corrida, en esta en la mayoría de los casos el jugador saldría con un beneficio luego de haber realizado las 100 tiradas. Como mencionamos anteriormente, la pérdida no es muy grande al no apostar demasiado usando esta estrategia, pero tampoco lo es la ganancia, por lo tanto los capitales finales no difieren demasiado del capital inicial.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+
+\series bold
+Fibonacci con valores mayores:
+\series default
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Observando los gráficos de todas las pruebas y corridas que hicimos de la ruleta nos dimos cuenta que la estrategia de Fibonacci se caracterizaba por generar pocas ganancias y pocas pérdidas, ya que a la hora de apostar siguiendo tal sucesión no se pone en juego una suma de dinero muy grande, sino que si toca una racha ganadora solo se realizan apuestas mínimas. En el caso de una racha perdedora, se iría incrementando la apuesta hasta el caso de ganar, en donde se revierte considerablemente la situación o hasta quedarnos sin dinero.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Debido a esta observación decidimos probar la misma estrategia pero multiplicando por 100 la apuesta según la estrategia anterior. Esto cambia evidentemente el flujo de caja del apostador. Veamos los siguientes gráficos:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIBx100-acotado-1tirada.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 9: Fibonacci Aumentado - Única Corrida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En esta gráfica se puede notar una gran diferencia si la comparamos con la estrategia de Fibonacci normal. En esta han habido muchas mas ganancias debido a la gran diferencia de montos que se apuestan. Dicho sea esto, de la misma forma que en este caso han habido grandes ganancias, podría haber habido grandes pérdidas.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FreRel-FIBx100.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 10: Frecuencia relativa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En este gráfico podemos observar la frecuencia relativa de la simulación de la estrategia de Fibonacci modificada, siendo la misma un poco menor a 0.6 al finalizar las 100 tiradas.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIBx100-acotado-multiplestiradas.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 11: Fibonacci Aumentado - Múltiples corridas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En este gráfico podemos ver que al igual que en la gráfica que incluye solo una corrida, la mayoría de las corridas derivan en una ganancia para el jugador. En este caso, el jugador se quedó en una pérdida total solo en dos ocasiones, mientras que en las otras 8 oportunidades tuvo ganancias importantes.
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Capital ideal
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+A continuación veremos las gráficas de los flujos de caja con cada estrategia utilizada, pero esta vez suponiendo que tenemos un capital de 200.000, el cual consideraremos como ideal.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+
+\series bold
+Martingala:
+\series default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename MG-ideal-1tirada.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 12: Martingala - Única Corrida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Aquí podemos observar una corrida de la ruleta utilizando la estrategia de Martingala, pero en esta ocasión utilizando un capital ideal de 200000, la cual comienza con una brusca pérdida, pero luego lentamente va recuperando lo perdido. Cerca de la tirada 50 hay otra importante pérdida, pero luego nuevamente comienza a obtener ganancias hasta llegar a salir con un beneficio con respecto al capital inicial al finalizar la tirada número 100.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename MG-ideal-multiplestiradas.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 13: Martingala - Múltiples Corridas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En este caso observamos nuevamente a la estrategia Martingala, pero esta vez con 10 corridas en simultaneo. Al igual que en la gráfica anterior, podemos ver que la mayoría de las veces el jugador termina con un beneficio con respecto al capital con el que había iniciado. Solo en tres ocaciones el jugador termina con pérdidas tras llegar a la tirada 100, y solo 2 de estas 3 tiradas el jugador termina en una pérdida tal que no puede continuar apostando.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+
+\series bold
+Fibonacci:
+\series default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIB-ideal-1tirada.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 14: Fibonacci - Única Corrida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En esta gráfica podemos ver nuevamente a la estrategia de Fibonacci, pero esta vez utilizamos un capital que consideramos como ideal de 200000. En esta ocasión el jugador comienza con una mínima ganancia, para luego tener una brusca pérdida. Luego de eso podemos ver que hay una gran mejora, pero finalmente el jugador termina en una pérdida al llegar a la tirada número 100.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIB-ideal-multiplestiradas(1).png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 15: Fibonacci - Múltiples Corridas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIB-ideal-multiplestiradas(2).png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 16: Fibonacci - Múltiples Corridas Acercado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Observando el comportamiento de la estrategia de Fibonacci aplicada con un capital ideal, entendemos que es una estrategia que no es adecuada en el caso de querer ganar dinero rápido sino al contrario. En todos los casos, la estrategia se mantiene constante en pérdidas y ganancias, y al observar las múltiples corridas de la ruleta las ganancias son despreciables en consideración con el capital ideal. Sin embargo en 10 corridas simuladas, se obtienen beneficios en 5 de ellas.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+
+\series bold
+Fibonacci x 100:
+\series default
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIBx100-ideal-1tirada.png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 17: Fibonacci Aumentado - Única Corrida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En esta gráfica podemos observar la estrategia de Fibonacci, pero asumiendo que usamos valores más grandes para las apuestas, por lo que las ganancias y las pérdidas son más pronunciadas. En este caso hay una clara mayoría de pérdidas. Aunque en un momento parece generar ganancias, al finalizar las 100 tiradas hay una pérdida, pero la misma no es tan grande.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIBx100-ideal-multiplestiradas(1).png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 18: Fibonacci - Múltiples Tiradas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Graphics 
+	filename FIBx100-ideal-multiplestiradas(2).png
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figura 19: Fibonacci - Múltiples Tiradas Acercado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En estas gráficas podemos observar múltiples corridas de la simulación de la estrategia de Fibonacci, nuevamente asumiendo que podemos tomar valores mayores. En este caso, al contrario de la gráfica en la que solo hicimos una corrida, la mayoría de las corridas terminan en una buena ganancia para el jugador, mientras que solo una le genera pérdidas al mismo.
+\end_layout
+
+\begin_layout Section
+
+\lang spanish
+Conclusión
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+A través de los análisis que hemos realizado, y gracias a las gráficas expuestas, hemos llegado a la conclusión de que en la mayoría de las ocasiones tanto las estrategias de Martingala como la de Fibonacci o la de Fibonacci con apuestas más grandes, conducen tanto a ganancias como a pérdidas en las distintas corridas que realizamos, lo que hemos notado es que en las ocasiones que tenemos un capital acotado, una vez que hay una gran pérdida es muy difícil poder continuar jugando, mientras que cuando poseemos un capital ideal es más fácil poder remontar la situación y aún así continuar apostando.
+\begin_inset Newline newline
+\end_inset
+
+ Esto ha sido lo opuesto a lo que nosotros esperabamos, ya que esperábamos que a largo plazo todas las estrategias generaran pérdidas. Sin embargo, aunque no todas las corridas hayan generado pérdidas en cuanto al capital inicial, sólo hemos simulado 10 corridas, si se piensa a largo plazo y la cantidad de apostadores que pasan por una ruleta queda demostrado que por probabilidades y matemática que el casino siempre va a obtener un porcentaje de ganancias de las apuestas de la gente dependiendo la jugada que realice y que los números no están a favor del apostador. Hay un punto que hay que tener en cuenta a la hora de jugar en apuestas de '50 - 50' en la ruleta europea: el número 0, el cuál no se considera número par ni tampoco impar, no se considera color rojo ni negro, sino que es verde, por lo cual no se tiene una probabilidad del 50% de ganar sino que la probabilidad es del 18/37, mientras que la probabilidad de perder es de 19/37 por lo que el casino tiene un margen del 1,35% de tus apuestas. Otro factor importante es que la probabilidad de que salga un número o apuesta simple es totalmente independiente al resultado anterior.
+\end_layout
+
+\begin_layout Bibliography
+
+\lang spanish
+
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label ""
+key "Estrategias"
+literal "false"
+
+\end_inset
+
+ Estrategia Martingala y Fibonacci: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+newblock
+\end_layout
+
+\end_inset
+
+ https://blog.sportium.es/3-simples-estrategias-para-ganar-en-la-ruleta-que-cualquiera-puede-intentar/
+\end_layout
+
+\begin_layout Bibliography
+
+\lang spanish
+
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label ""
+key "Matplotlib"
+literal "false"
+
+\end_inset
+
+ Librería Matplotlib: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+newblock
+\end_layout
+
+\end_inset
+
+ https://matplotlib.org/
+\end_layout
+
+\end_body
+\end_document

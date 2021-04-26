@@ -1,4 +1,219 @@
-\document
-\fin
+\documentclass{article}
 
 
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\graphicspath{ {./images/} }
+
+
+\title{TP 2.1 - Generadores de números pseudo-aleatorios}
+
+
+\author{
+ Santiago Cancio \\
+  Cátedra de Simulación\\
+  Universidad Tecnológica Nacional\\
+  Zeballos 1341, Rosario, Santa Fe \\
+  \texttt{santiago.cancio96@gmail.com} \\
+  %% examples of more authors
+   \And
+ Nicolás Fierro \\
+  Cátedra de Simulación\\
+  Universidad Tecnológica Nacional \\
+  Zeballos 1341, Rosario, Santa Fe\\
+  \texttt{nicofierro1@gmail.com} \\
+  \And
+ Alejandro Gómez Fernández \\
+  Cátedra de Simulación\\
+  Universidad Tecnológica Nacional \\
+  Zeballos 1341, Rosario, Santa Fe\\
+  \texttt{agomfer@gmail.com} \\
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Este trabajo práctico se basará en el estudio de diferentes generadores de números pseudo-aleatorios. Primero crearemos los generadores para luego realizar diversas pruebas con los mismos.
+\end{abstract}
+
+
+% keywords can be removed
+%\keywords{First keyword \and Second keyword \and More}
+
+
+\section{Introducción}
+Un número pseudo-aleatorio es un número generado en un proceso que parece producir números al azar, pero no lo hace realmente. Las secuencias de números pseudo-aleatorios no muestran ningún patrón o regularidad aparente desde un punto de vista estadístico, a pesar de haber sido generadas por un algoritmo completamente determinista, en el que las mismas condiciones iniciales producen siempre el mismo resultado.
+
+Los generadores de números pseudoaleatorios son ampliamente utilizados en campos tales como el modelado por computadora, estadística, diseño experimental, etc. Algunas de estas secuencias son lo suficientemente aleatorias para ser útiles en estas aplicaciones.
+
+Por lo general, el interés no radica en generar un solo número aleatorio, sino muchos, reunidos en lo que se conoce como secuencia aleatoria.
+
+Nuestro objetivo es generar dichas sucesiones de números pseudo-aleatorios, y para lograr esto hemos programado dos generadores distintos:
+
+\begin{itemize}
+\item Generador Congruencial Lineal (GCL)
+\item Generador Método de los cuadrados medios
+\end{itemize}
+
+\section{Descripción de los generadores}
+\label{sec:headings}
+\subsection{Generador Congruencial Lineal}
+Un generador congruencial lineal es un algoritmo que permite obtener una secuencia de números pseudo-aleatorios calculados con una función lineal definida a trozos discontinua. Es uno de los métodos más antiguos y conocidos para la generación de números pseudo-aleatorios. La teoría que sustenta el proceso es relativamente fácil de entender, el algoritmo en si es de fácil implementación y su ejecución es rápida.
+
+El generador se define por la relación de recurrencia:
+\begin{center}
+    \includegraphics[width=0.25\linewidth]{Imagen recurrencia.png}
+\end{center}
+donde es la secuencia de valores pseudoaleatorios, y X
+
+m, 0 < m - el "módulo"
+
+a, 0 < a < m - el "multiplicador"
+
+c, 0 <= c < m - el "incremento"
+
+X0, 0  <=  X_0 < m - la "semilla" o "valor inicial"
+    
+son constantes enteras que especifican el generador. Si c  = 0, el generador a menudo se denomina generador congruencial multiplicativo (MCG) o Lehmer RNG. Si c <> 0, el método se denomina generador congruencial mixto. 
+
+Cuando c <> 0, un matemático llamaría a la recurrencia una transformación afín, no lineal, pero el nombre inapropiado está bien establecido en la informática.
+
+\subsection{Generador Método de los cuadrados medios}
+Es un método propuesto en los años 40 por los matemáticos John von Neumann y Nicholas Metropolis, siendo utilizado para la generación de números pseudo-aleatorios, Esto para obtener una sucesión de números que básicamente se obtienen a partir de recurrencia, los cuales son relevantes en los procesos de simulación debido a que con estos números se hace posible comprobar el correcto funcionamiento de una prueba mediante la observación del comportamiento de las variables que se puedan encontrar a lo largo de la simulación.
+
+El método consiste en tomar un número al azar, X° de 2n cifras que al ser elevado al cuadrado resulta un número de hasta 4n cifras, de no ser así se deben agregar ceros a la izquierda de dicho resultado para que éste tenga exactamente 4n cifras.
+
+Se denomina X1 al número resultante de seleccionar las 2n cifras centrales del resultado anterior.
+
+Se genera el número pseudo-aleatorio U1 ubicando un punto decimal delante de las 2n cifras de X1 y así sucesivamente para los demás números pseudo-aleatorios.
+\section{Pruebas}
+\label{sec:others}
+Existen dos tipos de pruebas:
+\begin{enumerate}
+\item Empíricas: evalúan estadísticas de sucesiones de números.
+\item Teóricas: se establecen las características de las sucesiones usando métodos de teoría de números con base en la regla de recurrencia que generó la sucesión.
+\end{enumerate}
+
+Nosotros realizaremos cuatro pruebas diferentes para determinar la calidad de generación de los números pseudo-aleatorios. Las pruebas serán las siguientes:
+\begin{itemize}
+\item Prueba Monobit
+\item Prueba de Bondad de Ajuste Chi Cuadrado
+\item Prueba de Rachas
+\item Prueba de Poker
+\end{itemize}
+\subsection{Prueba Monobit}
+El propósito de esta prueba, es determinar si el número de unos y ceros en una secuencia son aproximadamente la misma que sería de esperar para una secuencia verdaderamente aleatoria. La aparición de un cero o un uno en la secuencia debería ser igualmente probables, de modo que el defecto detectado por este método es que la secuencia contiene demasiados ceros o unos.
+
+\subsection{Prueba de Bondad de Ajuste Chi Cuadrado}
+La Prueba de Bondad de Ajuste Chi Cuadrado es el test de bondad de ajuste más utilizado. En general un test de bondad de ajuste se utiliza para discriminar si una colección de datos o muestra se ajusta a una distribución teórica de una determinada población. En otras palabras, nos dice si la muestra disponible representa razonablemente los datos que uno esperaría encontrar en la población.
+
+La aplicación de la prueba de bondad de ajuste chi cuadrado requiere que los datos estén agrupados en categorías o clases. Si los datos originalmente no se encuentran agrupados será necesario agruparlos antes de aplicar el test de chi cuadrado para lo cual será necesario construir una tabla de frecuencia o histograma.
+
+La fórmula de cálculo del estadístico chi cuadrado utilizado en el test de bondad de ajuste chi cuadrado corresponde a:
+\begin{center}
+    \includegraphics[width=0.2\linewidth]{Test Chi Cuadrado.png}
+\end{center}
+
+\subsection{Prueba de Rachas}
+El contraste de rachas permite verificar la hipótesis nula de que la muestra es aleatoria, es decir, si las sucesivas observaciones son independientes. Este contraste se basa en el número de rachas que presenta una muestra. Una racha se define como una secuencia de valores muestrales con una característica común precedida y seguida por valores que no presentan esa característica. Así, se considera una racha la secuencia de k valores consecutivos superiores o iguales a la media muestral siempre que estén precedidos y seguidos por valores inferiores a la media muestral.
+
+El número total de rachas en una muestra proporciona un indicio de si hay o no aleatoriedad en la muestra. Un número reducido de rachas (el caso extremo es 2) es indicio de que las observaciones no se han extraído de forma aleatoria, los elementos de la primera racha proceden de una población con una determinada característica mientras que los de la segunda proceden de otra población. De forma idéntica un número excesivo de rachas puede ser también indicio de no aleatoriedad de la muestra.
+
+Si la muestra es suficientemente grande y la hipótesis de aleatoriedad es cierta, la distribución muestral del número de rachas, R, puede aproximarse mediante una distribución normal de parámetros:
+\begin{center}
+    \includegraphics[width=0.45\linewidth]{Prueba de Rachas 1.png}
+\end{center}
+
+donde n1 es el número de elementos de una clase, n2 es el número de elementos de la otra clase y n es el número total de observaciones.
+\begin{center}
+    \includegraphics[width=0.4\linewidth]{Prueba de Rachas 2.png}
+\end{center}
+
+\subsection{Prueba de Poker}
+Esta prueba examina en forma individual los dígitos del número pseudoaleatorio generado. La forma como esta prueba se realiza es tomando 5 dígitos a al vez y clasificándolos como: Par, dos pares, tercia, full, póker, quintilla y todos diferentes. Las probabilidades para cada una de las manos del póker diferentes se muestran a continuación:
+\begin{itemize}
+\item Todos diferentes = 0.3024
+\item Un par = 0.504
+\item Dos pares = 0.108
+\item Tercia = 0.072
+\item Full = 0.009
+\item Poker = 0.00045
+\item Quintilla = 0.0001
+\end{itemize}
+
+Con las probabilidades anteriores y con el número de números pseudoaleatorios generados, se puede calcular la frecuencia esperada de cada posible resultado, la cual al compararse con la frecuencia observada, produce el estadístico:
+\begin{center}
+    \includegraphics[width=0.2\linewidth]{Prueba de Poker.png}
+\end{center}
+
+\begin{center}
+Si \includegraphics[width=0.11\linewidth]{Prueba de Poker 2.png}.  Entonces los números pasan la prueba.
+\end{center}
+
+\section{Conclusión}
+\label{sec:others}
+
+\bibliographystyle{unsrt}  
+%\bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
+%%% and comment out the ``thebibliography'' section.
+
+
+%%% Comment out this section when you \bibliography{references} is enabled.
+\begin{thebibliography}{1}
+
+\bibitem{Números pseudo-aleatorios}
+Números pseudo-aleatorios:
+\newblock https://es.wikipedia.org/wiki/N%C3%BAmero_pseudoaleatorio
+
+\bibitem{Generador Congruencial Lineal}
+Generador Congruencial Lineal:
+\newblock https://es.qaz.wiki/wiki/Linear_congruential_generator
+
+\bibitem{Método de los cuadrados medios}
+Método de los cuadrados medios:
+\newblock https://es.wikibooks.org/wiki/Método_de_los_cuadrados_medios_para_la_generación_de_números_pseudoaleatorios
+
+\bibitem{Prueba Monobit}
+Prueba Monobit:
+\newblock http://4imedio.blogspot.com/2012/08/prueba-de-frecuencia-monobit.html
+
+\bibitem{Prueba de Bondad de Ajuste}
+Prueba de Bondad de Ajuste:
+\newblock https://www.probabilidadesyestadistica.com/prueba-de-bondad-de-ajuste-chi-cuadrado/
+
+\bibitem{Prueba de Rachas}
+Prueba de Rachas:
+\newblock http://www.ub.edu/aplica_infor/spss/cap5-4.htm
+
+\bibitem{Prueba de Poker}
+Prueba de Poker:
+\newblock https://www.monografias.com/trabajos32/prueba-de-poker/prueba-de-poker.shtml#:~:text=PRUEBA%20DE%20POKER.&text=Con%20las%20probabilidades%20anteriores%20y,frecuencia%20observada%2C%20produce%20el%20estad%C3%ADstico%3A&text=Entonces%20los%20n%C3%BAmeros%20pasan%20la%20prueba.
+\end{thebibliography}
+
+\end{document}

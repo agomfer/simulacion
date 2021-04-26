@@ -15,7 +15,7 @@ def glc(seed, a, c, m, n):
         rand = (a*rand + c) % m
         var.append(rand/m)
         result = '( ' + str(a) + ' * ' + str(rand) + ' + ' + str(c) + ' ) ' + ' % ' + str(m) + ' = ' + str(rand/m)
-        print(result)
+        print(i,": ", result)
     return var
 
 
@@ -32,8 +32,9 @@ def cuadradosmedios(seed,n):
         values.append(v)
         x = int(str(v).zfill(8)[2:6])
         seeds.append(x)
-        print('seed: ' + str(seeds[i]) + ' - Value: ' + str(values[i]))
+        print(i,": ",'seed: ' + str(seeds[i]) + ' - Value: ' + str(values[i]))
     return seeds, values
+
 
 
 

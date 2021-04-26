@@ -1,6 +1,7 @@
 import random, math, time, string
 from math import sqrt, erfc
 import matplotlib.pyplot as plt
+from scipy import stats
 
 
 # Convierte ese random de letras en binarios
@@ -30,3 +31,36 @@ def pruebaMonobit(numeros):
     else:
         print("Prueba de frecuencia No Exitosa - Valor: "+ str(valor_p))
 
+
+# Estadistica descriptiva 
+def EstDesc(datos,vals):
+    vals = stats.describe(datos)
+    #valores.append(vals)
+
+    freqs = stats.relfreq(datos,100)
+    #valores.append(freqs)
+
+    print ("Estadistica descriptiva: \n")
+    print (vals)
+    print ("\nFrecuencias relativas: \n")
+    print (freqs)
+    freqrel = freqs[0]
+    return freqrel
+
+# Prueba Chi Cuadrado con la biblioteca SciPy.stats
+def ChiCuad(freqs):
+
+    esperados = []
+    for i in range(100):
+        esperados.append(0.01)
+
+    chiCuad = stats.chisquare(freqs,esperados,0,0)
+    
+    print ("\nPrueba Chi Cuadrado\n")
+    print(chiCuad)
+    print ("\n\n")
+    
+    
+    #valores.append(chiCuad)
+    
+    

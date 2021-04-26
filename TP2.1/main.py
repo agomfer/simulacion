@@ -1,7 +1,7 @@
 import generadores
 import matplotlib.pyplot as plt
 import test
-
+import time
 
 
 # Definición de gráficas de frecuencias
@@ -31,11 +31,25 @@ a = 25214903917
 c = 11
 m = 2 ** 48
 
-resultGLC = generadores.glc(seed, a, c, m, 1000)
-#graficaFrecuecias(resultGLC,'GLC')
+n = 10000
+iter = 10
 
-resultCuadrado = generadores.cuadradosmedios(1556,10000)
-#graficaCuadrado(resultCuadrado[0],resultCuadrado[1],'Cuadrado',10)
+DescGLC = []
+FreqsGLC = []
+resultGLC = generadores.glc(seed, a, c, m, n)
+#graficaFrecuecias(resultGLC,'GLC')
+FreqsGLC = test.EstDesc(resultGLC,DescGLC)
+
+test.ChiCuad(FreqsGLC)
+
+time.sleep(10)
+
+DescCuadrado = []
+FreqsCuadrado = []
+resultCuadrado = generadores.cuadradosmedios(1556,n)
+#graficaCuadrado(resultCuadrado[0],resultCuadrado[1],'Cuadrado',iter)
+FreqsCuadrado = test.EstDesc(resultCuadrado[1],DescCuadrado)
+test.ChiCuad(FreqsCuadrado)
 
 
 print("PRUEBA DE FRECUENCIA - MÉTODO DE LOS CUADRADOS MEDIOS")
