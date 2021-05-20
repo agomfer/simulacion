@@ -1,6 +1,6 @@
-import random, math, time, string
+#import random, math, time, string
 from math import sqrt, erfc
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from scipy import stats
 
 
